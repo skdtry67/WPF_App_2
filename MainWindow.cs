@@ -12,18 +12,18 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        // ç”± XAML ä¸­æ‰€æœ‰ TextBox çš„ TextChanged ç¶å®šå‘¼å«ï¼ˆç›®å‰ç‚ºç©ºï¼Œå¯ç”¨ä¾†åšè¼¸å…¥é©—è­‰ï¼‰
+        // ¥Ñ XAML ¤¤©Ò¦³ TextBox ªº TextChanged ¸j©w©I¥s¡]¥Ø«e¬°ªÅ¡A¥i¥Î¨Ó°µ¿é¤JÅçÃÒ¡^
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // å¯ä»¥åœ¨æ­¤åŠ å…¥å³æ™‚é©—è­‰æ•¸å­—è¼¸å…¥çš„ç¨‹å¼ç¢¼ï¼ˆè¦–éœ€è¦ï¼‰
+            // ¥i¥H¦b¦¹¥[¤J§Y®ÉÅçÃÒ¼Æ¦r¿é¤Jªºµ{¦¡½X¡]µø»İ­n¡^
         }
 
-        // è¨‚è³¼æŒ‰éˆ•çš„è™•ç†å™¨ï¼ˆå°æ‡‰ XAML çš„ Click="OrderButton_Click"ï¼‰
+        // ­qÁÊ«ö¶sªº³B²z¾¹¡]¹ïÀ³ XAML ªº Click="OrderButton_Click"¡^
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // é€ä¸€è®€å–æ¯ç¨®é£²æ–™æ•¸é‡ï¼ˆç©ºå­—ä¸²è¦–ç‚º 0ï¼‰
+                // ³v¤@Åª¨ú¨CºØ¶¼®Æ¼Æ¶q¡]ªÅ¦r¦êµø¬° 0¡^
                 int redL = ParseQty(TxtRedTeaL.Text);
                 int redS = ParseQty(TxtRedTeaS.Text);
                 int greenL = ParseQty(TxtGreenTeaL.Text);
@@ -46,25 +46,25 @@ namespace WpfApp1
                           + cokeS * PriceCokeS;
 
                 var sb = new StringBuilder();
-                if (redL > 0) sb.AppendLine($"ç´…èŒ¶å¤§æ¯ x{redL} = {redL * PriceRedL} å…ƒ");
-                if (redS > 0) sb.AppendLine($"ç´…èŒ¶å°æ¯ x{redS} = {redS * PriceRedS} å…ƒ");
-                if (greenL > 0) sb.AppendLine($"ç¶ èŒ¶å¤§æ¯ x{greenL} = {greenL * PriceGreenL} å…ƒ");
-                if (greenS > 0) sb.AppendLine($"ç¶ èŒ¶å°æ¯ x{greenS} = {greenS * PriceGreenS} å…ƒ");
-                if (cokeL > 0) sb.AppendLine($"å¯æ¨‚å¤§æ¯ x{cokeL} = {cokeL * PriceCokeL} å…ƒ");
-                if (cokeS > 0) sb.AppendLine($"å¯æ¨‚å°æ¯ x{cokeS} = {cokeS * PriceCokeS} å…ƒ");
+                if (redL > 0) sb.AppendLine($"¬õ¯ù¤jªM x{redL} = {redL * PriceRedL} ¤¸");
+                if (redS > 0) sb.AppendLine($"¬õ¯ù¤pªM x{redS} = {redS * PriceRedS} ¤¸");
+                if (greenL > 0) sb.AppendLine($"ºñ¯ù¤jªM x{greenL} = {greenL * PriceGreenL} ¤¸");
+                if (greenS > 0) sb.AppendLine($"ºñ¯ù¤pªM x{greenS} = {greenS * PriceGreenS} ¤¸");
+                if (cokeL > 0) sb.AppendLine($"¥i¼Ö¤jªM x{cokeL} = {cokeL * PriceCokeL} ¤¸");
+                if (cokeS > 0) sb.AppendLine($"¥i¼Ö¤pªM x{cokeS} = {cokeS * PriceCokeS} ¤¸");
 
                 sb.AppendLine();
-                sb.AppendLine($"ç¸½è¨ˆï¼š{total} å…ƒ");
+                sb.AppendLine($"Á`­p¡G{total} ¤¸");
 
                 ResultTextBlock.Text = sb.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"è¨ˆç®—æ™‚ç™¼ç”ŸéŒ¯èª¤ï¼š{ex.Message}", "éŒ¯èª¤", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"­pºâ®Éµo¥Í¿ù»~¡G{ex.Message}", "¿ù»~", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        // è¼”åŠ©ï¼šå®‰å…¨åœ°æŠŠæ¬„ä½æ–‡å­—è½‰ç‚ºæ•¸é‡ï¼Œéæ•¸å­—æˆ–ç©ºå­—ä¸²è¦–ç‚º 0
+        // »²§U¡G¦w¥ş¦a§âÄæ¦ì¤å¦rÂà¬°¼Æ¶q¡A«D¼Æ¦r©ÎªÅ¦r¦êµø¬° 0
         private static int ParseQty(string text)
         {
             if (string.IsNullOrWhiteSpace(text)) return 0;
